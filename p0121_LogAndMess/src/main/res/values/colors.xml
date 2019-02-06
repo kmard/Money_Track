@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorll1">#40ffbc</color>
+    <color name="btnOK">#afff40</color>
+    <color name="btnCancel">#ff9c40</color>
+</resources>
