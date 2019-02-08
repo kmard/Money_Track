@@ -1,7 +1,7 @@
 package com.example.calculator_1;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -44,11 +44,47 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.num0:
                         tvOut.setText("0");
                         break;
+                    case R.id.num1:
+                        tvOut.setText("1");
+                        break;
+                    case R.id.num2:
+                        tvOut.setText("2");
+                        break;
+                    case R.id.num3:
+                        tvOut.setText("3");
+                        break;
+                    case R.id.num4:
+                        tvOut.setText("4");
+                        break;
+                    case R.id.num5:
+                        tvOut.setText("5");
+                        break;
+                    case R.id.num6:
+                        tvOut.setText("6");
+                        break;
+                    case R.id.num7:
+                        tvOut.setText("7");
+                        break;
+                    case R.id.num8:
+                        tvOut.setText("8");
+                        break;
+                    case R.id.num9:
+                        tvOut.setText("9");
+                        break;
                 }
             }
         };
 
         num0.setOnClickListener(onClickListener);
+        num1.setOnClickListener(onClickListener);
+        num2.setOnClickListener(onClickListener);
+        num3.setOnClickListener(onClickListener);
+        num4.setOnClickListener(onClickListener);
+        num5.setOnClickListener(onClickListener);
+        num6.setOnClickListener(onClickListener);
+        num7.setOnClickListener(onClickListener);
+        num8.setOnClickListener(onClickListener);
+        num9.setOnClickListener(onClickListener);
 
     }
 }
