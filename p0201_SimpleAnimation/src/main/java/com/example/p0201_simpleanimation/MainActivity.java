@@ -12,11 +12,11 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     //constant for id options menu
-    final int MENU_ALPHA_ID = 1;
-    final int MENU_SCALE_ID = 2;
-    final int MENU_TRANSLATE_ID = 3;
-    final int MENU_ROTATE_ID = 4;
-    final int MENU_COMBO_ID = 5;
+    private final int MENU_ALPHA_ID = 1;
+    private final int MENU_SCALE_ID = 2;
+    private final int MENU_TRANSLATE_ID = 3;
+    private final int MENU_ROTATE_ID = 4;
+    private final int MENU_COMBO_ID = 5;
 
     TextView tv;
 
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         //define wich options menu was selected
         switch (item.getItemId()){
             case MENU_ALPHA_ID:
-                //craete animation in the file anim/myalpha
+                //create animation in the file anim/myalpha
                 anim = AnimationUtils.loadAnimation(this,R.anim.myalpha);
                 break;
             case MENU_SCALE_ID:
