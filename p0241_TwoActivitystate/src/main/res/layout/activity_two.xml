@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/mainGround"
+        tools:context=".ActivityTwo" android:orientation="vertical">
+        <TextView
+                android:text="This is Activity two"
+                android:textSize="25dp"
+                android:padding="6dp"
+                android:textColor="@color/colorAccent"
+                android:gravity="center"
+                android:background="@color/backGround"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+         <Button
+                 android:text="Go to main activity"
+                 android:background="@color/colorAccent"
+                 android:id="@+id/btActMain"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"/>
+
+</LinearLayout>

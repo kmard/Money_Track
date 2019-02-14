@@ -1,4 +1,4 @@
-package com.example.twoactivity;
+package com.example.p0241_twoactivitystate;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,61 +9,59 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button  btnActTwo;
-    private static final String TAG = "TwoActivity";
+    private static final String TAG = "State";
+    
+    Button btnActTwo;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        btnActTwo = (Button) findViewById(R.id.btnActivityTwo);
+        
+        btnActTwo = (Button) findViewById(R.id.btnActTwo);
         btnActTwo.setOnClickListener(this);
-        Log.i(TAG, "onCreate: mainActivity");
+        Log.i(TAG, "onCreate: Main");
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.btnActivityTwo:
-                Intent intent = new Intent(this,ActivityTwo.class);
-                startActivity(intent);
-                Log.i(TAG, "onClick: return Second activity");
-                break;
-              default:
-
-               break;
-        }
+        Intent intent = new Intent(this,ActivityTwo.class);
+        startActivity(intent);
     }
 
     @Override
     protected void onStart() {
-        Log.i(TAG, "onStart: MainActivity");
+        Log.i(TAG, "onStart: Main");
         super.onStart();
     }
-
+    
     @Override
     protected void onResume() {
-        Log.i(TAG, "onResume: MainActivity");
+        Log.i(TAG, "onResume: Main");
         super.onResume();
     }
 
     @Override
     protected void onPause() {
-        Log.i(TAG, "onPause: MainActivity");
+        Log.i(TAG, "onPause: Main");
         super.onPause();
     }
 
     @Override
+    protected void onDestroy() {
+        Log.i(TAG, "onDestroy: Main");
+        super.onDestroy();
+    }
+
+    @Override
     protected void onStop() {
-        Log.i(TAG, "onStop: MainActivity");
+        Log.i(TAG, "onStop: Main");
         super.onStop();
     }
 
     @Override
-    protected void onDestroy() {
-        Log.i(TAG, "onDestroy: MainActivity");
-        super.onDestroy();
-
-
+    protected void onRestart() {
+        Log.i(TAG, "onRestart: Main");
+        super.onRestart();
     }
 }

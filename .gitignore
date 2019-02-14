@@ -31,3 +31,6 @@ gradle-app.setting
 *.hprof
 hs_err*
 libs/
+/p0161_DynamicLayout/build.gradle
+/p0041BasicView/build.gradle
+/p0051_layoutfiles/build.gradle
