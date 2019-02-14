@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Деньги</string>
     <string name="add_item_title">Добавить новую запись</string>
+    <string name="currency_us">$</string>
 </resources>
