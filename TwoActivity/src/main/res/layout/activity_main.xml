@@ -9,4 +9,5 @@
                android:layout_height="wrap_content"
                android:text="Go to activity two"
                android:id="@+id/btnActivityTwo"/>
+
 </LinearLayout>
