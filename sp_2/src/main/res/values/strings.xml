@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Sp_2</string>
+    <string name="laFrance">La France</string>
+    <string name="label_text">Enter user name</string>
+    <string name="entry_hint">Entry field</string>
+
+
 </resources>
