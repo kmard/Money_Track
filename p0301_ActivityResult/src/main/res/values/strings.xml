@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">P0301_ActivityResult</string>
+    <string name="textColor">Color</string>
+    <string name="tvSomeText">Some Text</string>
+    <string name="txAlignment">Alignment</string>
 </resources>
