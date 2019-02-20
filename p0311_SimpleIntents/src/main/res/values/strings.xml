@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">P0311_SimpleIntents</string>
+    <string name="nameWeb">Web</string>
+    <string name="nameMap">name Map</string>
+    <string name="nameCall">name Call</string>
+</resources>
