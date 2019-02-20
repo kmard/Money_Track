@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Stations">
+        <item>First</item>
+        <item>Second</item>
+        <item>Therd</item>
+        <item>Forth</item>
+        <item>Fifth</item>
+        <item>Sixth</item>
+        <item>Seventh</item>
+        <item>Eighth</item>
+        <item>Nineth</item>
+        <item>Tenth</item>
+        <item>Eleventh</item>
+        <item>Twelvth</item>
+        <item>Therteenth</item>
+        <item>Fourteenth</item>
+        <item>Fifteenth</item>
+        <item>Sixteenth</item>
+        <item>Seventeenth</item>
+       <item>Eighteenth</item>
+        <item>Nineteenth</item>
+        <item>Twentyeth</item>
+        <item>TwentyOneth</item>
+        <item>TwentyTwoth</item>
+        <item>TwentyThreeTh</item>
+        <item>TwentyFourth</item>
+        <item>TwentyFiveth</item>
+        <item>1First</item>
+        <item>1Second</item>
+        <item>1Therd</item>
+        <item>1Forth</item>
+        <item>1Fifth</item>
+        <item>1Sixth</item>
+        <item>1Seventh</item>
+        <item>1Eighth</item>
+        <item>1Nineth</item>
+        <item>1Tenth</item>
+        <item>1Eleventh</item>
+        <item>1Twelvth</item>
+        <item>1Therteenth</item>
+        <item>1Fourteenth</item>
+        <item>1Fifteenth</item>
+        <item>1Sixteenth</item>
+        <item>1Seventeenth</item>
+        <item>1Eighteenth</item>
+        <item>1Nineteenth</item>
+        <item>1Twentyeth</item>
+        <item>1TwentyOneth</item>
+        <item>1TwentyTwoth</item>
+        <item>1TwentyThreeTh</item>
+        <item>1TwentyFourth</item>
+        <item>1TwentyFiveth</item>
+    </string-array>
+</resources>
