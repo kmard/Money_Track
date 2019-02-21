@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">P0331_SharedPreferences</string>
+    <string name="txSave">save</string>
+    <string name="txLoad">Load</string>
+</resources>

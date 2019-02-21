@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">p_Buttons</string>
+    <string name="txtButton">Button</string>
+    <string name="txtChooseme">ChooseMe</string>
+</resources>
