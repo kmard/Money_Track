@@ -1,4 +1,4 @@
-package com.example.p0341_simplesqlite;
+package com.example.p0342_simplesqlite_update_delete;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -17,8 +17,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private static final String TAG = "myLogs";
 
-    Button btnAdd,btnRead,btnClear;
-    EditText etName,etEmail;
+    Button btnAdd,btnRead,btnClear,btnUpd,btnDel;
+    EditText etName, etEmail,etID;
 
     DBHelper dbHelper;
 
@@ -36,10 +36,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnClear = (Button) findViewById(R.id.btnClear);
         btnClear.setOnClickListener(this);
 
+        btnUpd = (Button) findViewById(R.id.btnUpd);
+        btnUpd.setOnClickListener(this);
+
+        btnDel = (Button) findViewById(R.id.btnDel);
+        btnDel.setOnClickListener(this);
+
         etName = (EditText) findViewById(R.id.etName);
         etEmail = (EditText) findViewById(R.id.etEmail);
+        etID = (EditText) findViewById(R.id.etID);
 
-        //Create object for management version BD
+        //create new object for manage  and create virsions BD
         dbHelper = new DBHelper(this);
 
     }
@@ -50,9 +57,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //create object for data
         ContentValues cv = new ContentValues();
 
-        //receive data for fields (enter)
+        //recieve data for field (entered)
         String name = etName.getText().toString();
         String email = etEmail.getText().toString();
+        String id = etID.getText().toString();
 
         //connect to DB
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -78,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //Put position's cursor in the first string selection
                 //if  selection don't have string then return false
                 if(c.moveToFirst()){
-                      //select number colums for name in the selection
+                    //select number colums for name in the selection
                     int idColIndex = c.getColumnIndex("id");
                     int nameColIndex = c.getColumnIndex("name");
                     int emailColIndex= c.getColumnIndex("email");
@@ -87,8 +95,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         //recieve value on the number column and write to the log
                         Log.i(TAG,
                                 "ID = "+c.getInt(idColIndex)+
-                                ", name = "+c.getString(nameColIndex)+
-                                " ,email = "+c.getString(emailColIndex));
+                                        ", name = "+c.getString(nameColIndex)+
+                                        " ,email = "+c.getString(emailColIndex));
                     }while (c.moveToNext());
                 } else{
                     Log.i(TAG, " 0 rows");
@@ -101,31 +109,52 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 int clearCount = db.delete("mytable",null,null);
                 Log.i(TAG,"deleted rows count = "+clearCount);
                 break;
+            case R.id.btnUpd:
+                if (id.equalsIgnoreCase("")){
+                    break;
+                }
+                Log.i(TAG, "----Update mytable:------");
+                //prepare value for update
+                cv.put("name",name);
+                cv.put("email",email);
+                //update for id
+                int updCount = db.update("mytable",cv,"id = ?",new String[] {id});
+                Log.i(TAG, "updated rows count =  "+updCount);
+                break;
+            case R.id.btnDel:
+                if(id.equalsIgnoreCase("")){
+                    break;
+                }
+                Log.i(TAG, "-----delete from mytable-------");
+                //delete on ID
+                int delCount = db.delete("mytable","id = "+id,null);
+                Log.i(TAG, "deleted rows count = "+delCount);
+                break;
         }
-        //close connection with DB
+        //close connection to DB
         dbHelper.close();
     }
 
-
-     class DBHelper  extends SQLiteOpenHelper {
+    private class DBHelper extends SQLiteOpenHelper {
         public DBHelper(Context context) {
             //constractor super class's
             super(context,"myDB",null,1);
         }
 
-         @Override
-         public void onCreate(SQLiteDatabase db) {
-             Log.i(TAG, "-----onCreateDB-------");
-             //create table with fields
-             db.execSQL("create table mytable ("
-                     +"id integer primary key autoincrement,"
-                     +"name, text,"
-                     +"email text"+");");
-         }
+        @Override
+        public void onCreate(SQLiteDatabase db) {
+            Log.i(TAG, "-----onCreateDB-------");
+            //create table with fields
+            db.execSQL("create table mytable ("
+                    +"id integer primary key autoincrement,"
+                    +"name, text,"
+                    +"email text"+");");
+        }
 
-         @Override
-         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        @Override
+        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-         }
-     }
+        }
+    }
+
 }
