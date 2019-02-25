@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -40,12 +41,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent();
                 intent.setAction(Intent.ACTION_DEFAULT);
                 intent.setData(Uri.parse("geo:55.754283,37.62002"));
-                startActivity(intent);
+                if(intent.resolveActivity(getPackageManager()) != null){
+                    startActivity(intent);
+                } else{
+                    Toast.makeText(this,"Not found application for web Map",Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.btnCall:
                 intent = new Intent(Intent.ACTION_DIAL);
                 intent.setData(Uri.parse("tel:123456"));
-                startActivity(intent);
+                if(intent.resolveActivity(getPackageManager()) != null){
+                    startActivity(intent);
+                } else{
+                    Toast.makeText(this,"Not found application for calling",Toast.LENGTH_SHORT).show();
+                }
                 break;
         }
     }
