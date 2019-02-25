@@ -17,15 +17,19 @@ public class ViewActivity extends AppCompatActivity  implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
 
-        tvView = (TextView) findViewById(R.id.tvView);
+       // tvView = (TextView) findViewById(R.id.tvView);
         btnBack = (Button) findViewById(R.id.btnBack);
 
         Intent intent = getIntent();
 
         String fname = intent.getStringExtra("fname");
+        fname = (fname ==null)? "Unknown": fname;
         String lname = intent.getStringExtra("lname");
+        lname = (lname == null) ? "Unknown" : lname;
 
-        tvView.setText("Your name is "+fname+" your last name is "+lname);
+        //tvView.setText("Your name is "+fname+" your last name is "+lname);
+
+        ((TextView) findViewById(R.id.tvView)).setText("Your name is "+fname+" your last name is "+lname);
 
         btnBack.setOnClickListener(this);
     }

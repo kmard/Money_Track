@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">P0361_SQLiteQuery_Country</string>
+    <string name="ВсеЗаписи">Все записи</string>
+    <string name="СправочникСтран">Справочник стран</string>
+</resources>
