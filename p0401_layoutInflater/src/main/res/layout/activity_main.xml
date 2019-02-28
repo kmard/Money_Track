@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".MainActivity">
+        android:orientation="vertical">
 
     <LinearLayout
             android:id="@+id/linLayout"
-            android:orientation="horizontal"
+
             android:layout_margin="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <TextView
                 android:text="Linear Layout : "
-                android:textAlignment="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
     </LinearLayout>
@@ -26,7 +23,6 @@
             android:layout_height="wrap_content">
         <TextView
                 android:text="Relative Layout : "
-                android:textAlignment="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
