@@ -29,22 +29,22 @@ public class MainActivity extends AppCompatActivity {
 
         LayoutInflater ltInflater = getLayoutInflater();
 
-        for (int i = 0; i < name.length; i++ ){
-            Log.i("myLogs", "i = "+i);
+        for (int i = 0; i < name.length; i++) {
+            Log.i("myLogs", "i = " + i);
 
-            View item = ltInflater.inflate(R.layout.activity_item,linLayout,false);
+            View item = ltInflater.inflate(R.layout.activity_item, linLayout, false);
 
             TextView tvName = (TextView) item.findViewById(R.id.tvName);
             tvName.setText(name[i]);
 
             TextView tvPosition = (TextView) item.findViewById(R.id.tvPosition);
-            tvPosition.setText("Position "+position[i]);
+            tvPosition.setText("Position " + position[i]);
 
-           TextView tvSalary = (TextView) item.findViewById(R.id.tvSalary);
-           tvSalary.setText("salary : "+String.valueOf(salary[i]));
+            TextView tvSalary = (TextView) item.findViewById(R.id.tvSalary);
+            tvSalary.setText("salary : " + String.valueOf(salary[i]));
 
-           item.getLayoutParams().width = LinearLayout.LayoutParams.MATCH_PARENT;
-            item.setBackgroundColor(colors[1%2]);
+            item.getLayoutParams().width = LinearLayout.LayoutParams.MATCH_PARENT;
+            item.setBackgroundColor(colors[1 % 2]);
 
             linLayout.addView(item);
 
