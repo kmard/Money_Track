@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">P0631_AlertDialogItemsSingle</string>
+    <string name="items">Items</string>
+    <string name="cursor">Cursor</string>
+    <string name="adapter">adapter</string>
+    <string name="item">Item</string>
+    <string name="ok">ok</string>
+</resources>
