@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">P0641_AlertDialogItemsMulti</string>
+    <string name="items">items</string>
+    <string name="cursor">cursor</string>
+</resources>
