@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">P0711_PreferencesSimple</string>
-    <string name="text">Text</string>
+    <string name="app_name">P0721_PreferencesSimple2</string>
     <string-array name="entries">
         <item>one</item>
         <item>two</item>
