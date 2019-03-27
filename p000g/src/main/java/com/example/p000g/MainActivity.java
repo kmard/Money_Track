@@ -1,9 +1,11 @@
 package com.example.p000g;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText text_from_user;
     private TextView result;
     private Button btn;
+    private FloatingActionButton floatBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,15 @@ public class MainActivity extends AppCompatActivity {
         this.text_from_user = findViewById(R.id.editText);
         this.result = findViewById(R.id.tvResult);
         this.btn = findViewById(R.id.btnConvert);
+        this.floatBtn = findViewById(R.id.floatBtn);
+
+        floatBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent("com.example.p000g.LoginPageActivity");
+                startActivity(intent);
+            }
+        });
 
 
         btn.setOnClickListener(new View.OnClickListener() {
