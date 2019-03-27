@@ -2,4 +2,9 @@
     <string name="app_name">p000G</string>
     <string name="clever_converter">Clever converter</string>
     <string name="convert">Convert</string>
+    <string name="title_activity_login_page">LoginPageActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="enter_miles">Enter miles</string>
 </resources>
