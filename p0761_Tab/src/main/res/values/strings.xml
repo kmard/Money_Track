@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">P0761_Tab</string>
+    <string name="text_tab1">text_tab1</string>
+    <string name="text_tab2">text_tab2</string>
+    <string name="text_tab3">text_tab3</string>
+    <string name="text_tab_header">text_tab_header</string>
+</resources>
