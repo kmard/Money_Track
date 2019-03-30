@@ -28,6 +28,7 @@ public class LoginPageActivity extends AppCompatActivity {
                     return true;
             }
             return false;
+
         }
     };
 
