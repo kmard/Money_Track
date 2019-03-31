@@ -3,8 +3,11 @@ package com.example.p000g;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 public class LoginPageActivity extends AppCompatActivity {
@@ -41,5 +44,23 @@ public class LoginPageActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
+
+
+    public void FragmentChange(View v) {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        switch (v.getId()) {
+            case R.id.fr_1:
+                InfoFragment info_fragment = new InfoFragment();
+                //  ft.replace(R.id.fragment,info_fragment);
+                break;
+            case R.id.fr_2:
+                SecondFragment second_fragment = new SecondFragment();
+                // ft.replace(R.id.fragment,second_fragment);
+                break;
+        }
+        ft.commit();
+    }
+
 
 }

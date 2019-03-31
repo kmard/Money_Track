@@ -7,4 +7,13 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="enter_miles">Enter miles</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="a_file_output_stream_is_an_output_stream_for_writing_data_to_a_file_or_to_a_filedescriptor_whether_or_not_a_file_is_available_or_may_be_created_depends_upon_the_underlying_platform_some_platforms_in_particular_allow_a_file_to_be_opened_for_writing_by_only_one_fileoutputstream_or_other_file_writing_object_at_a_time_in_such_situations_the_constructors_in_this_class_will_fail_if_the_file_involved_is_already_open">
+        A file output stream is an output stream for writing data to a File or to a FileDescriptor. Whether or not a
+        file is available or may be created depends upon the underlying platform. Some platforms, in particular, allow a
+        file to be opened for writing by only one FileOutputStream (or other file-writing object) at a time. In such
+        situations the constructors in this class will fail if the file involved is already open.
+    </string>
 </resources>
