@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">P0781_TabContentFactory</string>
+    <string name="this_craeted_with_layoutinflater">This craeted with LayoutInflater</string>
+</resources>
