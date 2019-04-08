@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <com.jgabrielfreitas.core.BlurImageView
+            android:id="@+id/warren"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/warren" android:scaleType="fitXY"/>
+    <ImageView
+            android:layout_width="115dp"
+            android:layout_height="100dp" app:srcCompat="@drawable/album" android:id="@+id/imageView"
+            android:layout_marginBottom="540dp" android:layout_alignBottom="@+id/warren" android:layout_marginTop="0dp"
+            android:layout_alignParentTop="true" android:layout_marginEnd="269dp" android:layout_alignEnd="@+id/warren"
+            android:layout_marginStart="0dp" android:layout_alignStart="@+id/warren" android:scaleType="fitStart"/>
+
+
+</RelativeLayout>
