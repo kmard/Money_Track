@@ -2,5 +2,8 @@
     <string name="app_name">p000g_Player</string>
     <string name="material_io">https://material.io/tools/</string>
     <string name="BlurImageView">https://github.com/jgabrielfreitas/BlurImageView</string>
+    <string name="album">Album</string>
+    <string name="stop">Stop</string>
+    <string name="start">Start</string>
 
 </resources>
