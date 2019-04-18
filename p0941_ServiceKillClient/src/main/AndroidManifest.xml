@@ -14,6 +14,7 @@
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="com.example.p0942_servicekillclient.MyService"/>
             </intent-filter>
         </activity>
     </application>
