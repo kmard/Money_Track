@@ -11,15 +11,19 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    public final static int STATUS_START = 100;
-    public final static int STATUS_FINISH = 200;
-    public final static String PARAM_TIME = "time";
-    public final static String PARAM_PINTENT = "pendingIntent";
-    public final static String PARAM_RESULT = "result";
     private static final String TAG = "myLogs";
+
     final int TASK1_CODE = 1;
     final int TASK2_CODE = 2;
     final int TASK3_CODE = 3;
+
+    public final static int STATUS_START = 100;
+    public final static int STATUS_FINISH = 200;
+
+    public final static String PARAM_TIME = "time";
+    public final static String PARAM_PINTENT = "pendingIntent";
+    public final static String PARAM_RESULT = "result";
+
     TextView tvTask1;
     TextView tvTask2;
     TextView tvTask3;
