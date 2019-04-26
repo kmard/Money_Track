@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">P0971_ServiceBindClient</string>
+    <string name="start">start</string>
+    <string name="stop">stop</string>
+    <string name="bind">bind</string>
+    <string name="unbind">unbind</string>
+</resources>
