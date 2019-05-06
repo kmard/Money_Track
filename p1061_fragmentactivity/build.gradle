@@ -5,7 +5,7 @@ android {
 
 
     defaultConfig {
-        applicationId "com.example.p1051_fragmentdynamic"
+        applicationId "com.example.p1061_fragmentactivity"
         minSdkVersion 15
         targetSdkVersion 28
         versionCode 1
