@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">P1051_FragmentDynamic</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="frag1_text">frag1_text</string>
+    <string name="frag2_text">frag2_text</string>
+    <string name="add">add</string>
+    <string name="remove">remove</string>
+    <string name="replace">replace</string>
+    <string name="stack">stack</string>
 </resources>
