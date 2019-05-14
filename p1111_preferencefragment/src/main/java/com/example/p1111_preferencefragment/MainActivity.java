@@ -1,13 +1,23 @@
 package com.example.p1111_preferencefragment;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.preference.PreferenceActivity;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.List;
+
+public class MainActivity extends PreferenceActivity {
+
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+////        setContentView(R.layout.activity_main);
+//
+//        getFragmentManager().beginTransaction().replace(android.R.id.content, new Fragment1()).commit();
+// }
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public void loadHeadersFromResource(int resid, List<Header> target) {
+        //super.loadHeadersFromResource(resid, target);
+        loadHeadersFromResource(R.xml.pref_head, target);
     }
 }
