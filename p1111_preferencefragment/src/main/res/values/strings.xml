@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">P1111_PreferenceFragment</string>
+    <string name="checkbox1_summary">checkbox1_summary</string>
+    <string name="checkbox1_title">checkbox1_title</string>
+    <string name="edittext1_summary">edittext1_summary</string>
+    <string name="edittext1_title">edittext1_title</string>
+    <string name="list1_summary">list1_summary</string>
+    <string name="list1_title">list1_title</string>
+    <string name="category1">category1</string>
+    <string name="checkbox2_summary">checkbox2_summary</string>
+    <string name="checkbox2_title">checkbox2_title</string>
+    <string name="edittext2_summary">edittext2_summary</string>
+    <string name="edittext2_title">edittext2_title</string>
+    <string name="list2_summary">list2_summary</string>
+    <string name="list2_title">list2_title</string>
+    <string name="category2">category2</string>
+    <string name="screen1_summary">screen1_summary</string>
+    <string name="screen1_title">screen1_title</string>
+    <string name="screen2_summary">screen2_summary</string>
+    <string name="screen2_title">screen2_title</string>
+    <string name="header1_summary">header1_summary</string>
+    <string name="header1_title">header1_title</string>
+    <string name="header2_summary">header2_summary</string>
+    <string name="header2_title">header2_title</string>
+    <string name="header3_summary">header3_summary</string>
+    <string name="header3_title">header3_title</string>
+    <string-array name="entries">
+        <item>one</item>
+        <item>two</item>
+        <item>three</item>
+    </string-array>
+    <string-array name="entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+</resources>
