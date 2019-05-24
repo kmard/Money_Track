@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.p1191_pendingintent">
+          package="com.example.p1201_clickwidget">
 
     <application
             android:allowBackup="true"
@@ -11,7 +11,7 @@
             android:theme="@style/AppTheme">
         <activity android:name=".widget">
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".ConfigActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
