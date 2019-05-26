@@ -9,13 +9,27 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".widget">
-        </activity>
-        <activity android:name=".ConfigActivity">
+        <receiver
+                android:name=".widget">
+            <intent-filter>
+                <action
+                        android:name="android.appwidget.action.APPWIDGET_UPDATE">
+                </action>
+            </intent-filter>
+            <meta-data
+                    android:name="android.appwidget.provider"
+                    android:resource="@xml/widget_metadata">
+            </meta-data>
+        </receiver>
+        <activity
+                android:name="ConfigActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
+                <action
+                        android:name="android.appwidget.action.APPWIDGET_CONFIGURE">
+                </action>
             </intent-filter>
         </activity>
     </application>
