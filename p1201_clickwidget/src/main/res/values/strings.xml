@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">P1201_ClickWidget</string>
+    <string name="config">config</string>
+    <string name="update">update</string>
+    <string name="count">count</string>
+    <string name="ok">ok</string>
+</resources>
