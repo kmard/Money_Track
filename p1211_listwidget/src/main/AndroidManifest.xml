@@ -11,18 +11,23 @@
             android:theme="@style/AppTheme">
         <service
                 android:name=".MyService"
-                android:exported="false">
+                android:exported="false"
+                android:permission="android.permission.BIND_REMOTEVIEWS">
         </service>
-
-        <activity android:name=".item">
-        </activity>
-        <activity android:name=".widget">
+        <receiver
+                android:name="MyProvider">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action
+                        android:name="android.appwidget.action.APPWIDGET_UPDATE">
+                </action>
             </intent-filter>
-        </activity>
+            <meta-data
+                    android:name="android.appwidget.provider"
+                    android:resource="@xml/widget_metadata">
+            </meta-data>
+        </receiver>
+
+
     </application>
 
 </manifest>
