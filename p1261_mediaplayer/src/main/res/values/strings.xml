@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">P1261_MediaPlayer</string>
+    <string name="http">http</string>
+    <string name="stream">stream</string>
+    <string name="sd">sd</string>
+    <string name="uri">uri</string>
+    <string name="raw">raw</string>
+    <string name="pause">pause</string>
+    <string name="resume">resume</string>
+    <string name="stop">stop</string>
+    <string name="loop">loop</string>
+    <string name="backward">backward</string>
+    <string name="forward">forward</string>
+    <string name="info">info</string>
 </resources>
