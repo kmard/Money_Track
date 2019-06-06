@@ -36,7 +36,8 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnCom
         mpMusic = new MediaPlayer();
 
         try {
-            mpMusic.setDataSource("mnt/sdcard/Music/music.mp3");
+            //mpMusic.setDataSource("mnt/sdcard/Music/music.mp3");
+            mpMusic.setDataSource("res/raw/music.mp3");
             mpMusic.prepare();
         } catch (IOException e) {
             e.printStackTrace();
@@ -79,7 +80,26 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnCom
 
     @Override
     public void onCompletion(MediaPlayer mp) {
+        if (mp == mpMusic) {
+            Log.i(TAG, "Music : abandon focus ");
+            audioManager.abandonAudioFocus(afListenerMusic);
+        } else if (mp == mpSound) {
+            Log.i(TAG, "Sound : abandon focus ");
+            audioManager.abandonAudioFocus(afListenerSound);
+        }
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mpMusic != null)
+            mpMusic.release();
+        if (mpSound != null)
+            mpSound.release();
+        if (afListenerMusic != null)
+            audioManager.abandonAudioFocus(afListenerMusic);
+        if (afListenerSound != null)
+            audioManager.abandonAudioFocus(afListenerSound);
     }
 
     private class AFListener implements AudioManager.OnAudioFocusChangeListener {
@@ -100,15 +120,19 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnCom
             switch (focusChange) {
                 case AudioManager.AUDIOFOCUS_LOSS:
                     event = "AUDIOFOCUS_LOSS";
+                    mp.pause();
                     break;
                 case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT:
                     event = "AUDIOFOCUS_LOSS_TRANSIENT";
+                    mp.pause();
                     break;
                 case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK:
                     event = "AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK";
+                    mp.setVolume(0.5f, 0.5f);
                     break;
                 case AudioManager.AUDIOFOCUS_GAIN:
                     event = "AUDIOFOCUS_GAIN";
+                    mp.setVolume(1.5f, 1.5f);
                     break;
             }
             Log.i(TAG, label + " onAudioFocusChange: " + event);
