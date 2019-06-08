@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">P1281_AudioFocus</string>
+    <string name="music">music</string>
+    <string name="sound_gain">sound_gain</string>
+    <string name="sound_gain_transient">sound_gain_transient</string>
+    <string name="sound_gain_transient_duck">sound_gain_transient_duck</string>
+</resources>
