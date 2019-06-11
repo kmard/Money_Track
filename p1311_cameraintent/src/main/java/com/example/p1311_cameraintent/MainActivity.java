@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -85,9 +86,29 @@ public class MainActivity extends AppCompatActivity {
 
     private Uri generateFileUri(int type) {
 
+        File file = null;
+        switch (type) {
+            case TYPE_PHOTO:
+                file = new File(directory.getPath() + "/" + "photo_"
+                        + System.currentTimeMillis() + ".jpg");
+                break;
+            case TYPE_VIDEO:
+                file = new File(directory.getPath() + "/" + "video_"
+                        + System.currentTimeMillis() + ".mp4");
+                break;
+        }
+        Log.i(TAG, "fileName = " + file);
+        return Uri.fromFile(file);
     }
 
     private void createDirectory() {
+        directory = new File(
+                Environment
+                        .getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
+                "MyFolder");
+        if (!directory.exists())
+            directory.mkdir();
+
     }
 
 }
