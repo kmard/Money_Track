@@ -1,12 +1,11 @@
 package com.example.p1321_camerascreen;
 
+import android.graphics.Matrix;
+import android.graphics.RectF;
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
-import android.view.Window;
-import android.view.WindowManager;
+import android.view.*;
 
 import java.io.IOException;
 
@@ -53,11 +52,87 @@ public class MainActivity extends AppCompatActivity {
         camera = null;
     }
 
-    private void setPreviewSize(boolean full_screen) {
+    private void setPreviewSize(boolean fullScreen) {
 
+        //get size screen
+        Display display = getWindowManager().getDefaultDisplay();
+        boolean widthMax = display.getWidth() > display.getHeight();
+
+        //define size preView of camera
+        Camera.Size size = camera.getParameters().getPreviewSize();
+
+        RectF rectDisplay = new RectF();
+        RectF rectPreview = new RectF();
+
+        //RectF screen, fits size of screen
+        rectDisplay.set(0, 0, display.getWidth(), display.getHeight());
+
+        //RectF preView
+        if (widthMax) {
+            //preView horizontal orientation
+            rectPreview.set(0, 0, size.width, size.height);
+        } else {
+            //preView vertical orientation
+            rectPreview.set(0, 0, size.height, size.width);
+        }
+
+        Matrix matrix = new Matrix();
+        //prepare matrix transformation
+        if (!fullScreen) {
+            matrix.setRectToRect(rectPreview, rectDisplay,
+                    Matrix.ScaleToFit.START);
+        } else {
+            matrix.setRectToRect(rectDisplay, rectPreview,
+                    Matrix.ScaleToFit.START);
+            matrix.invert(matrix);
+        }
+
+        //transformation
+        matrix.mapRect(rectPreview);
+
+        //install sizes surface
+        sv.getLayoutParams().height = (int) (rectPreview.bottom);
+        sv.getLayoutParams().width = (int) (rectPreview.right);
     }
 
     void setCameraDisplayOrientation(int cameraId) {
+        //
+        int rotation = getWindowManager().getDefaultDisplay().getRotation();
+        int degrees = 0;
+        switch (rotation) {
+            case Surface.ROTATION_0:
+                degrees = 0;
+                break;
+            case Surface.ROTATION_90:
+                degrees = 90;
+                break;
+            case Surface.ROTATION_180:
+                degrees = 180;
+                break;
+            case Surface.ROTATION_270:
+                degrees = 270;
+                break;
+        }
+
+        int result = 0;
+
+        //get info about camera id
+        Camera.CameraInfo info = new Camera.CameraInfo();
+        Camera.getCameraInfo(cameraId, info);
+
+        //back camera
+        if (info.facing == Camera.CameraInfo.CAMERA_FACING_BACK) {
+            result = ((360 - degrees) + info.orientation);
+        } else {
+            //front camera
+            if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
+                result = ((360 - degrees) - info.orientation);
+                result += 360;
+            }
+
+            result = result % 360;
+            camera.setDisplayOrientation(result);
+        }
 
     }
 
