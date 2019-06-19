@@ -8,6 +8,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import java.util.List;
@@ -88,6 +89,48 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        // Flash
+
+        final List<String> flashModes = camera.getParameters()
+                .getSupportedFlashModes();
+        // tunning spiner
+        Spinner spFlash = initSpinner(R.id.spFlash, flashModes, camera
+                .getParameters().getFlashMode());
+        // processsing choosing
+        spFlash.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View arg1,
+                                       int arg2, long arg3) {
+                Camera.Parameters params = camera.getParameters();
+                params.setFlashMode(flashModes.get(arg2));
+                camera.setParameters(params);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
     }
 
+    Spinner initSpinner(int spinnerId, List<String> data, String currentValue) {
+        //tunning spiner and adapter for it
+        Spinner spinner = (Spinner) findViewById(spinnerId);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, data);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+        //find what value in list is current setting
+        for (int i = 0; i < data.size(); i++) {
+            String item = data.get(i);
+            if (item.equals(currentValue)) {
+                spinner.setSelection(i);
+            }
+        }
+        return spinner;
+    }
 }
+
+
+
