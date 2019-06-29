@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">P1361_CursorLoader</string>
+    <string name="add_record">add_record</string>
+    <string name="delete_record">delete_record</string>
+</resources>
