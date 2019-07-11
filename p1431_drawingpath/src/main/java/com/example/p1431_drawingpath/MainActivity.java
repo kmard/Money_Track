@@ -1,7 +1,10 @@
 package com.example.p1431_drawingpath;
 
 import android.content.Context;
-import android.graphics.*;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Path;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -27,11 +30,16 @@ public class MainActivity extends AppCompatActivity {
 //        Path path1;
 
         //2
+//        Paint p;
+//        Path path;
+//        Point point1;
+//        Point point21;
+//        Point point22;
+
+        //3
         Paint p;
         Path path;
-        Point point1;
-        Point point21;
-        Point point22;
+        String text;
 
 
         public DrawView(Context context) {
@@ -46,14 +54,21 @@ public class MainActivity extends AppCompatActivity {
 //            path = new Path();
 //            path1 = new Path();
 
+            //2
+//            p = new Paint(Paint.ANTI_ALIAS_FLAG);
+//            p.setStrokeWidth(3);
+//            path = new Path();
+//
+//            point1 = new Point(200, 300);
+//            point21 = new Point(500, 600);
+//            point22 = new Point(900, 200);
+
+            //3
             p = new Paint(Paint.ANTI_ALIAS_FLAG);
-            p.setStrokeWidth(3);
+            p.setStrokeWidth(1);
+            p.setTextSize(20);
             path = new Path();
-
-            point1 = new Point(200, 300);
-            point21 = new Point(500, 600);
-            point22 = new Point(900, 200);
-
+            text = "Draw the text, with origin at (x,y), using the specified paint";
         }
 
         @Override
@@ -110,35 +125,70 @@ public class MainActivity extends AppCompatActivity {
 
             //2
             //first line
-            p.setColor(Color.BLACK);
-            canvas.drawLine(100, 100, 600, 100, p);
+//            p.setColor(Color.BLACK);
+//            canvas.drawLine(100, 100, 600, 100, p);
+//
+//            //Point of deviation for first line
+//            p.setStyle(Paint.Style.FILL);
+//            p.setColor(Color.GREEN);
+//            canvas.drawCircle(point1.x, point1.y, 10, p);
+//
+//            //square curve
+//            path.reset();
+//            path.moveTo(100, 100);
+//            path.quadTo(point1.x, point1.y, 600, 100);
+//            p.setStyle(Paint.Style.STROKE);
+//            canvas.drawPath(path, p);
+//
+//            //second line
+//            p.setColor(Color.BLACK);
+//            canvas.drawLine(400, 400, 1100, 400, p);
+//
+//            //Point of deviation for second line
+//            p.setStyle(Paint.Style.FILL);
+//            p.setColor(Color.BLUE);
+//            canvas.drawCircle(point21.x, point21.y, 10, p);
+//            canvas.drawCircle(point22.x, point22.y, 10, p);
+//
+//            //Cubic curve
+//            path.reset();
+//            path.moveTo(400, 400);
+//            path.cubicTo(point21.x, point21.y, point22.x, point22.y, 1100, 400);
+//            p.setStyle(Paint.Style.STROKE);
+//            canvas.drawPath(path, p);
 
-            //Point of deviation for first line
-            p.setStyle(Paint.Style.FILL);
-            p.setColor(Color.GREEN);
-            canvas.drawCircle(point1.x, point1.y, 10, p);
+            //3
+            canvas.drawARGB(80, 102, 204, 255);
 
-            //square curve
+            //black
             path.reset();
-            path.moveTo(100, 100);
-            path.quadTo(point1.x, point1.y, 600, 100);
+            path.addCircle(200, 200, 100, Path.Direction.CW);
+            p.setColor(Color.BLACK);
+            canvas.drawTextOnPath(text, path, 0, 0, p);
+
+            path.reset();
+            path.addCircle(500, 200, 100, Path.Direction.CCW);
+
+            //blue
+            p.setStyle(Paint.Style.FILL);
+            p.setColor(Color.BLUE);
+            canvas.drawTextOnPath(text, path, 0, 0, p);
             p.setStyle(Paint.Style.STROKE);
             canvas.drawPath(path, p);
 
-            //second line
-            p.setColor(Color.BLACK);
-            canvas.drawLine(400, 400, 1100, 400, p);
-
-            //Point of deviation for second line
+            //green
+            path.offset(-300, 250);
             p.setStyle(Paint.Style.FILL);
-            p.setColor(Color.BLUE);
-            canvas.drawCircle(point21.x, point21.y, 10, p);
-            canvas.drawCircle(point22.x, point22.y, 10, p);
+            p.setColor(Color.GREEN);
+            canvas.drawTextOnPath(text, path, 100, 0, p);
+            p.setStyle(Paint.Style.STROKE);
+            canvas.drawPath(path, p);
 
-            //Cubic curve
-            path.reset();
-            path.moveTo(400, 400);
-            path.cubicTo(point21.x, point21.y, point22.x, point22.y, 1100, 400);
+            //red
+            path.offset(300, 0);
+            p.setStyle(Paint.Style.FILL);
+            p.setColor(Color.RED);
+            canvas.drawTextOnPath(text, path, 0, 30, p);
             p.setStyle(Paint.Style.STROKE);
             canvas.drawPath(path, p);
         }
