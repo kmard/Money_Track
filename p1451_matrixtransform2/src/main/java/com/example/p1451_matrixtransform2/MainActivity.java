@@ -15,11 +15,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(new DrawView(this));
     }
 
-    //V2
     private class DrawView extends View {
 
         Paint p;
         Paint pBlack;
+        Paint pGray;
         Path path;
         Path pathDst;
         RectF rectf;
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         float[] src;
         float[] dst;
         float[] dst2;
-        int points = 1;
+        int points = 2;
 
         public DrawView(Context context) {
             super(context);
@@ -35,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
             p = new Paint();
             p.setStrokeWidth(3);
             p.setStyle(Paint.Style.STROKE);
+
+            pGray = new Paint();
+            pGray.setColor(Color.GRAY);
+            pGray.setStrokeWidth(3);
 
             pBlack = new Paint();
             pBlack.setColor(Color.BLACK);
@@ -45,15 +49,14 @@ public class MainActivity extends AppCompatActivity {
             matrix = new Matrix();
 
             rectf = new RectF(100, 100, 200, 200);
-            src = new float[] {100, 100, 200, 200};
-            dst = new float[] {50, 300, 250, 250};
-            dst2 = new float[] {400, 200, 500, 200};
+            src = new float[] {100, 100, 200, 200, 200, 100};
+            dst = new float[] {50, 300, 250, 500, 230, 350};
+            dst2 = new float[] {400, 200, 500, 200, 440, 100};
         }
 
         @Override
         protected void onDraw(Canvas canvas) {
-            //super.onDraw(canvas);
-            canvas.drawARGB(80, 102, 204, 255);
+//            super.onDraw(canvas);
 
             //green square
             path.reset();
@@ -61,25 +64,98 @@ public class MainActivity extends AppCompatActivity {
             p.setColor(Color.GREEN);
             canvas.drawPath(path, p);
             canvas.drawLine(src[0], src[1], src[2], src[3], pBlack);
+            canvas.drawLine(src[0], src[1], src[4], src[5], pGray);
 
-            //blue square transformation
+            //Blue square
+            //transformation
             matrix.setPolyToPoly(src, 0, dst, 0, points);
             path.transform(matrix, pathDst);
-
-            //painting
+            //paint
             p.setColor(Color.BLUE);
             canvas.drawPath(pathDst, p);
             canvas.drawLine(dst[0], dst[1], dst[2], dst[3], pBlack);
+            canvas.drawLine(dst[0], dst[1], dst[4], dst[5], pGray);
 
-            //red square
+            //Red square
             //transformation
             matrix.setPolyToPoly(src, 0, dst2, 0, points);
-            //drawing
+            path.transform(matrix, pathDst);
+            //paint
             p.setColor(Color.RED);
             canvas.drawPath(pathDst, p);
             canvas.drawLine(dst2[0], dst2[1], dst2[2], dst2[3], pBlack);
+            canvas.drawLine(dst2[0], dst2[1], dst2[4], dst2[5], pGray);
         }
     }
+
+//    V3
+
+
+    //V2
+//    private class DrawView extends View {
+//
+//        Paint p;
+//        Paint pBlack;
+//        Path path;
+//        Path pathDst;
+//        RectF rectf;
+//        Matrix matrix;
+//        float[] src;
+//        float[] dst;
+//        float[] dst2;
+//        int points = 1;
+//
+//        public DrawView(Context context) {
+//            super(context);
+//
+//            p = new Paint();
+//            p.setStrokeWidth(3);
+//            p.setStyle(Paint.Style.STROKE);
+//
+//            pBlack = new Paint();
+//            pBlack.setColor(Color.BLACK);
+//            pBlack.setStrokeWidth(3);
+//
+//            path = new Path();
+//            pathDst = new Path();
+//            matrix = new Matrix();
+//
+//            rectf = new RectF(100, 100, 200, 200);
+//            src = new float[] {100, 100, 200, 200};
+//            dst = new float[] {50, 300, 250, 250};
+//            dst2 = new float[] {400, 200, 500, 200};
+//        }
+//
+//        @Override
+//        protected void onDraw(Canvas canvas) {
+//            //super.onDraw(canvas);
+//            canvas.drawARGB(80, 102, 204, 255);
+//
+//            //green square
+//            path.reset();
+//            path.addRect(rectf, Path.Direction.CW);
+//            p.setColor(Color.GREEN);
+//            canvas.drawPath(path, p);
+//            canvas.drawLine(src[0], src[1], src[2], src[3], pBlack);
+//
+//            //blue square transformation
+//            matrix.setPolyToPoly(src, 0, dst, 0, points);
+//            path.transform(matrix, pathDst);
+//
+//            //painting
+//            p.setColor(Color.BLUE);
+//            canvas.drawPath(pathDst, p);
+//            canvas.drawLine(dst[0], dst[1], dst[2], dst[3], pBlack);
+//
+//            //red square
+//            //transformation
+//            matrix.setPolyToPoly(src, 0, dst2, 0, points);
+//            //drawing
+//            p.setColor(Color.RED);
+//            canvas.drawPath(pathDst, p);
+//            canvas.drawLine(dst2[0], dst2[1], dst2[2], dst2[3], pBlack);
+//        }
+//    }
 
 
 //    V1
