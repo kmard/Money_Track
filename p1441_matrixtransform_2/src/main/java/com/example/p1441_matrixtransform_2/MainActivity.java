@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
 
         Paint p;
         Path path;
+        //V3
+        Path pathDst;
         Matrix matrix;
 
         public DrawView(Context context) {
@@ -27,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
             p.setStyle(Paint.Style.STROKE);
 
             path = new Path();
+            //V3
+            pathDst = new Path();
             matrix = new Matrix();
         }
 
@@ -66,36 +70,71 @@ public class MainActivity extends AppCompatActivity {
 //        }
 
         //V2
+//        @Override
+//        protected void onDraw(Canvas canvas) {
+//            //super.onDraw(canvas);
+//            canvas.drawARGB(80, 102, 204, 255);
+//
+//            //create cross in path
+//            path.reset();
+//            path.addRect(300, 150, 450, 200, Path.Direction.CW);
+//            path.addRect(350, 100, 400, 250, Path.Direction.CW);
+//            path.addCircle(375, 125, 5, Path.Direction.CW);
+//
+//            //paint path as green
+//            p.setColor(Color.GREEN);
+//            canvas.drawPath(path, p);
+//
+//            //custom matrix rotate on 120 degree
+//            //relative point (600,400)
+//            matrix.reset();
+//            matrix.setRotate(120, 600, 400);
+//
+//            //add matrix to path
+//            path.transform(matrix);
+//
+//            //paint path as blue
+//            p.setColor(Color.BLUE);
+//            canvas.drawPath(path, p);
+//
+//            //paint point, relative which was done rotation
+//            p.setColor(Color.BLACK);
+//            canvas.drawCircle(600, 400, 5, p);
+//        }
+
+        //V3
+
+
         @Override
         protected void onDraw(Canvas canvas) {
             //super.onDraw(canvas);
-            canvas.drawARGB(80, 102, 204, 255);
 
-            //create cross in path
-            path.reset();
-            path.addRect(300, 150, 450, 200, Path.Direction.CW);
-            path.addRect(350, 100, 400, 250, Path.Direction.CW);
-            path.addCircle(375, 125, 5, Path.Direction.CW);
+            canvas.drawARGB(80,102,204,255);
 
-            //paint path as green
-            p.setColor(Color.GREEN);
-            canvas.drawPath(path, p);
-
-            //custom matrix rotate on 120 degree
-            //relative point (600,400)
-            matrix.reset();
-            matrix.setRotate(120, 600, 400);
-
-            //add matrix to path
-            path.transform(matrix);
-
-            //paint path as blue
-            p.setColor(Color.BLUE);
-            canvas.drawPath(path, p);
-
-            //paint point, relative which was done rotation
             p.setColor(Color.BLACK);
-            canvas.drawCircle(600, 400, 5, p);
+            canvas.drawCircle(400,200,10,p);
+
+            //rectangle
+            path.reset();
+            path.addRect(300,100,500,300,Path.Direction.CW);
+            canvas.drawPath(path,p);
+
+            //change position after turn
+            matrix.reset();
+            matrix.setRotate(45,400,200);
+            matrix.postTranslate(500,0);
+            path.transform(matrix,pathDst);
+            p.setColor(Color.GREEN);
+            canvas.drawPath(pathDst,p);
+
+            //change position before turn
+            matrix.reset();
+            matrix.setRotate(45,400,200);
+            matrix.preTranslate(500,0);
+            path.transform(matrix,pathDst);
+            p.setColor(Color.RED);
+            canvas.drawPath(pathDst,p);
         }
+
     }
 }
