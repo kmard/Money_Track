@@ -1,13 +1,56 @@
 package com.example.p1521_picture;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Context;
+import android.graphics.*;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(new DrawView(this));
+    }
+
+    private class DrawView extends View {
+
+        Paint p;
+        Path path;
+        Picture picture;
+
+        public DrawView(Context context) {
+            super(context);
+
+            p = new Paint(Paint.ANTI_ALIAS_FLAG);
+            picture = new Picture();
+
+            Canvas canvas = picture.beginRecording(300, 300);
+
+            p.setColor(Color.GREEN);
+            canvas.drawCircle(150, 100, 80, p);
+
+            p.setColor(Color.BLUE);
+            canvas.drawRect(20, 70, 150, 200, p);
+
+            p.setColor(Color.RED);
+            path = new Path();
+            path.moveTo(170, 80);
+            path.lineTo(240, 210);
+            path.lineTo(100, 210);
+            path.close();
+            canvas.drawPath(path, p);
+
+            picture.endRecording();
+
+        }
+
+        @Override
+        protected void onDraw(Canvas canvas) {
+            canvas.drawARGB(80, 102, 204, 255);
+
+            canvas.drawPicture(picture);
+        }
     }
 }
