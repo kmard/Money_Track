@@ -40,16 +40,60 @@ public class OpenGLRenderer implements GLSurfaceView.Renderer {
     }
 
     private void prepareData() {
+
+        //V1
+        //        float[] vertices = {
+//                //rectangular 1
+//                -0.9f, 0.8f, -0.9f, 0.2f, -0.5f, -0.8f,
+//                //rectangular 2
+//                -0.6f, 0.2f, -0.2f, 0.2f, -0.2f, -0.8f,
+//                //rectangular 3
+//                0.1f, 0.8f, 0.1f, 0.2f, 0.5f, 0.8f,
+//                //rectangular 4
+//                0.1f, 0.2f, 0.5f, 0.2f, 0.5f, 0.8f,
+//        };
+
+        //V2
         float[] vertices = {
-                //rectangular 1
-                -0.9f, 0.8f, -0.9f, 0.2f, -0.5f, -0.8f,
-                //rectangular 2
-                -0.6f, 0.2f, -0.2f, 0.2f, -0.2f, -0.8f,
-                //rectangular 3
-                0.1f, 0.8f, 0.1f, 0.2f, 0.5f, 0.8f,
-                //rectangular 4
-                0.1f, 0.2f, 0.5f, 0.2f, 0.5f, 0.8f,
+                // rectangular 1
+                -0.9f, 0.8f,
+                -0.9f, 0.2f,
+                -0.5f, 0.8f,
+
+                // rectangular 2
+                -0.6f, 0.2f,
+                -0.2f, 0.2f,
+                -0.2f, 0.8f,
+
+                // rectangular 3
+                0.1f, 0.8f,
+                0.1f, 0.2f,
+                0.5f, 0.8f,
+
+                // rectangular 4
+                0.1f, 0.2f,
+                0.5f, 0.2f,
+                0.5f, 0.8f,
+
+                // Line 1
+                -0.7f, -0.1f,
+                0.7f, -0.1f,
+
+                // Line 2
+                -0.6f, -0.2f,
+                0.6f, -0.2f,
+
+                // point 1
+                -0.5f, -0.3f,
+
+                // point 2
+                0.0f, -0.3f,
+
+                // point 3
+                0.5f, -0.3f,
         };
+
+
         vertexData = ByteBuffer.allocateDirect(vertices.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
         vertexData.put(vertices);
     }
@@ -66,6 +110,18 @@ public class OpenGLRenderer implements GLSurfaceView.Renderer {
     @Override
     public void onDrawFrame(GL10 gl) {
         glClear(GL_COLOR_BUFFER_BIT);
+        glLineWidth(5);
+
+        // blue rectangular
+        glUniform4f(uColorLocation, 0.0f, 0.0f, 1.0f, 1.0f);
         glDrawArrays(GL_TRIANGLES, 0, 12);
+
+        // green lines
+        glUniform4f(uColorLocation, 0.0f, 1.0f, 0.0f, 1.0f);
+        glDrawArrays(GL_LINES, 12, 4);
+
+        // red points
+        glUniform4f(uColorLocation, 1.0f, 0.0f, 0.0f, 1.0f);
+        glDrawArrays(GL_POINTS, 16, 3);
     }
 }
