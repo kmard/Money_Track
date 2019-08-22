@@ -1,4 +1,4 @@
-package com.example.p1691_opengl;
+package com.example.p1601_bitmaplarge;
 
 import android.app.ActivityManager;
 import android.content.Context;
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         }
         glSurfaceView = new GLSurfaceView(this);
         glSurfaceView.setEGLContextClientVersion(2);
-        glSurfaceView.setRenderer(new OpenGLRenderer(this));
+        glSurfaceView.setRenderer(new OpenGLRenderer());
         setContentView(glSurfaceView);
     }
 
@@ -44,4 +44,5 @@ public class MainActivity extends AppCompatActivity {
         ConfigurationInfo configurationInfo = activityManager.getDeviceConfigurationInfo();
         return (configurationInfo.reqGlEsVersion >= 0x20000);
     }
+
 }

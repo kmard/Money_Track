@@ -1,4 +1,4 @@
-package com.example.p1691_opengl;
+package com.example.p1691_opengl_02;
 
 import android.app.ActivityManager;
 import android.content.Context;
